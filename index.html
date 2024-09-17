@@ -3,72 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit to Minutes Converter</title>
-    <script defer src="converter.js"></script> <!-- Link to your JS file -->
+    <title>Minutes to Units Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Unit and Time Converter</h1>
-
-    <!-- Section to convert minutes to units -->
-    <div>
-        <h2>Convert Minutes to Units</h2>
-        <label for="minutesInput">Enter Minutes:</label>
-        <input type="number" id="minutesInput" />
-        <button onclick="handleMinutesToUnits()">Convert to Units</button>
-        <p id="unitsOutput"></p>
-    </div>
-
-    <!-- Section to convert units to minutes -->
-    <div>
-        <h2>Convert Units to Minutes</h2>
-        <label for="unitsInput">Enter Units:</label>
-        <input type="number" id="unitsInput" />
-        <button onclick="handleUnitsToMinutes()">Convert to Minutes</button>
-        <p id="minutesOutput"></p>
-    </div>
-
-    <!-- Section to convert time to minutes -->
-    <div>
-        <h2>Convert Time (HH:MM) to Minutes</h2>
-        <label for="timeInput">Enter Time (HH:MM):</label>
-        <input type="text" id="timeInput" placeholder="HH:MM" />
-        <button onclick="handleTimeToMinutes()">Convert to Minutes</button>
-        <p id="timeToMinutesOutput"></p>
-    </div>
-
-    <!-- Section to convert minutes to time -->
-    <div>
-        <h2>Convert Minutes to Time (HH:MM)</h2>
-        <label for="minutesToTimeInput">Enter Minutes:</label>
-        <input type="number" id="minutesToTimeInput" />
-        <button onclick="handleMinutesToTime()">Convert to Time</button>
-        <p id="minutesToTimeOutput"></p>
-    </div>
+    <h1>Convert Minutes to Units</h1>
+    <label for="minutesInput">Enter Minutes:</label>
+    <input type="number" id="minutesInput" min="0" placeholder="Enter minutes">
+    <button onclick="calculateUnits()">Convert</button>
+    
+    <p id="result"></p>
 
     <script>
-        // JavaScript functions to handle conversions
-        function handleMinutesToUnits() {
-            const minutes = document.getElementById('minutesInput').value;
-            const result = convertMinutesToUnits(parseInt(minutes));
-            document.getElementById('unitsOutput').innerText = `Units: ${result}`;
+        function convertMinutesToUnits(minutes) {
+            if (minutes < 8) {
+                return 0; // Minutes less than 8 are 0 units
+            } else if (minutes <= 22) {
+                return 1;
+            } else if (minutes <= 37) {
+                return 2;
+            } else if (minutes <= 52) {
+                return 3;
+            } else if (minutes <= 67) {
+                return 4;
+            } else if (minutes <= 82) {
+                return 5;
+            } else if (minutes <= 97) {
+                return 6;
+            } else if (minutes <= 112) {
+                return 7;
+            } else if (minutes <= 127) {
+                return 8;
+            } else if (minutes <= 142) {
+                return 9;
+            } else if (minutes <= 157) {
+                return 10;
+            } else if (minutes <= 172) {
+                return 11;
+            } else if (minutes <= 187) {
+                return 12;
+            } else if (minutes <= 202) {
+                return 13;
+            } else if (minutes <= 217) {
+                return 14;
+            } else if (minutes <= 232) {
+                return 15;
+            } else if (minutes <= 247) {
+                return 16;
+            } else {
+                return "Invalid input: Exceeds the defined range.";
+            }
         }
 
-        function handleUnitsToMinutes() {
-            const units = document.getElementById('unitsInput').value;
-            const result = convertUnitsToMinutes(parseInt(units));
-            document.getElementById('minutesOutput').innerText = `Minutes: ${result}`;
-        }
+        function calculateUnits() {
+            const minutesInput = document.getElementById("minutesInput").value;
+            const result = convertMinutesToUnits(parseInt(minutesInput));
 
-        function handleTimeToMinutes() {
-            const time = document.getElementById('timeInput').value;
-            const result = convertTimeToMinutes(time);
-            document.getElementById('timeToMinutesOutput').innerText = `Total Minutes: ${result}`;
-        }
-
-        function handleMinutesToTime() {
-            const minutes = document.getElementById('minutesToTimeInput').value;
-            const result = convertMinutesToTime(parseInt(minutes));
-            document.getElementById('minutesToTimeOutput').innerText = `Time: ${result}`;
+            document.getElementById("result").innerText = `The number of units for ${minutesInput} minutes is: ${result}`;
         }
     </script>
 </body>
