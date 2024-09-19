@@ -3,26 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minutes to Units Converter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        input, button {
-            margin: 5px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Convert Minutes to Units</h1>
-    <label for="minutesInput">Enter Minutes:</label>
-    <input type="number" id="minutesInput" min="0" placeholder="Enter minutes">
-    <button onclick="calculateUnits()">Convert</button>
-    
-    <p id="result"></p>
-
+    <title>Time and Minutes to Units Converter</title>
     <script>
+        // Convert minutes to units
         function convertMinutesToUnits(minutes) {
             if (minutes < 8) {
                 return 0; // Minutes less than 8 are 0 units
@@ -63,12 +46,65 @@
             }
         }
 
-        function calculateUnits() {
-            const minutesInput = document.getElementById("minutesInput").value;
-            const result = convertMinutesToUnits(parseInt(minutesInput));
+        // Convert time (HH:MM) to total minutes
+        function convertTimeToMinutes(time) {
+            const [hours, minutes] = time.split(":").map(Number);
+            return (hours * 60) + minutes;
+        }
 
-            document.getElementById("result").innerText = `The number of units for ${minutesInput} minutes is: ${result}`;
+        // Calculate the difference in units between start and end times
+        function calculateUnitsWorked() {
+            const startTime = document.getElementById("startTime").value;
+            const endTime = document.getElementById("endTime").value;
+
+            const startMinutes = convertTimeToMinutes(startTime);
+            const endMinutes = convertTimeToMinutes(endTime);
+
+            const totalMinutes = endMinutes - startMinutes;
+
+            if (totalMinutes < 0) {
+                document.getElementById("unitsResult").innerText = "End time must be after start time!";
+            } else {
+                const units = convertMinutesToUnits(totalMinutes);
+                document.getElementById("unitsResult").innerText = `Units: ${units}`;
+            }
+        }
+
+        // Convert entered minutes to units directly
+        function calculateUnitsFromMinutes() {
+            const minutes = parseInt(document.getElementById("minutesInput").value);
+
+            if (isNaN(minutes) || minutes < 0) {
+                document.getElementById("minutesResult").innerText = "Please enter a valid number of minutes.";
+            } else {
+                const units = convertMinutesToUnits(minutes);
+                document.getElementById("minutesResult").innerText = `Units: ${units}`;
+            }
         }
     </script>
-</body>
-</html>
+</head>
+<body>
+    <h1>Time and Minutes to Units Converter</h1>
+
+    <!-- Section 1: Convert start/end time to units -->
+    <div>
+        <h2>Convert Time to Units</h2>
+        <label for="startTime">Start Time (HH:MM):</label>
+        <input type="time" id="startTime" required>
+
+        <label for="endTime">End Time (HH:MM):</label>
+        <input type="time" id="endTime" required>
+
+        <button onclick="calculateUnitsWorked()">Calculate Units</button>
+        <p id="unitsResult"></p>
+    </div>
+
+    <!-- Section 2: Convert minutes to units -->
+    <div>
+        <h2>Convert Minutes to Units</h2>
+        <label for="minutesInput">Enter Minutes:</label>
+        <input type="number" id="minutesInput" placeholder="e.g., 45" required>
+
+        <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
+        <p id="minutesResult"></p>
+    </div>
