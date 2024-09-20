@@ -55,53 +55,56 @@
     <div class="container">
         <h1>Time and Minutes to Units Converter</h1>
 
-        <div class="main-content">
-            <!-- Section 1: Convert start/end time to units -->
-            <div>
-                <h2>Convert Time to Units</h2>
-                <label for="startTime">Start Time (HH:MM):</label>
-                <input type="time" id="startTime" required>
+        <div class="content-wrapper">
+            <!-- Left Column: Time and Minutes Conversion -->
+            <div class="main-content">
+                <!-- Section 1: Convert start/end time to units -->
+                <div>
+                    <h2>Convert Time to Units</h2>
+                    <label for="startTime">Start Time (HH:MM):</label>
+                    <input type="time" id="startTime" required>
 
-                <label for="endTime">End Time (HH:MM):</label>
-                <input type="time" id="endTime" required>
+                    <label for="endTime">End Time (HH:MM):</label>
+                    <input type="time" id="endTime" required>
 
-                <button onclick="calculateUnitsWorked()">Calculate Units</button>
-                <p id="unitsResult"></p>
+                    <button onclick="calculateUnitsWorked()">Calculate Units</button>
+                    <p id="unitsResult"></p>
+                </div>
+
+                <!-- Section 2: Convert minutes to units -->
+                <div>
+                    <h2>Convert Minutes to Units</h2>
+                    <label for="minutesInput">Enter Minutes:</label>
+                    <input type="number" id="minutesInput" placeholder="e.g., 45" required>
+
+                    <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
+                    <p id="minutesResult"></p>
+                </div>
             </div>
 
-            <!-- Section 2: Convert minutes to units -->
-            <div>
-                <h2>Convert Minutes to Units</h2>
-                <label for="minutesInput">Enter Minutes:</label>
-                <input type="number" id="minutesInput" placeholder="e.g., 45" required>
-
-                <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
-                <p id="minutesResult"></p>
+            <!-- Right Column: Mapping Guide -->
+            <div class="side-guide">
+                <h2>Minutes to Units Mapping Guide</h2>
+                <table>
+                    <tr><th>Minutes Range</th><th>Units</th></tr>
+                    <tr><td>8 - 22</td><td>1</td></tr>
+                    <tr><td>23 - 37</td><td>2</td></tr>
+                    <tr><td>38 - 52</td><td>3</td></tr>
+                    <tr><td>53 - 67</td><td>4</td></tr>
+                    <tr><td>68 - 82</td><td>5</td></tr>
+                    <tr><td>83 - 97</td><td>6</td></tr>
+                    <tr><td>98 - 112</td><td>7</td></tr>
+                    <tr><td>113 - 127</td><td>8</td></tr>
+                    <tr><td>128 - 142</td><td>9</td></tr>
+                    <tr><td>143 - 157</td><td>10</td></tr>
+                    <tr><td>158 - 172</td><td>11</td></tr>
+                    <tr><td>173 - 187</td><td>12</td></tr>
+                    <tr><td>188 - 202</td><td>13</td></tr>
+                    <tr><td>203 - 217</td><td>14</td></tr>
+                    <tr><td>218 - 232</td><td>15</td></tr>
+                    <tr><td>233 - 247</td><td>16</td></tr>
+                </table>
             </div>
-        </div>
-
-        <!-- Section 3: User-friendly guide on the side -->
-        <div class="side-guide">
-            <h2>Minutes to Units Mapping Guide</h2>
-            <table>
-                <tr><th>Minutes Range</th><th>Units</th></tr>
-                <tr><td>8 - 22</td><td>1</td></tr>
-                <tr><td>23 - 37</td><td>2</td></tr>
-                <tr><td>38 - 52</td><td>3</td></tr>
-                <tr><td>53 - 67</td><td>4</td></tr>
-                <tr><td>68 - 82</td><td>5</td></tr>
-                <tr><td>83 - 97</td><td>6</td></tr>
-                <tr><td>98 - 112</td><td>7</td></tr>
-                <tr><td>113 - 127</td><td>8</td></tr>
-                <tr><td>128 - 142</td><td>9</td></tr>
-                <tr><td>143 - 157</td><td>10</td></tr>
-                <tr><td>158 - 172</td><td>11</td></tr>
-                <tr><td>173 - 187</td><td>12</td></tr>
-                <tr><td>188 - 202</td><td>13</td></tr>
-                <tr><td>203 - 217</td><td>14</td></tr>
-                <tr><td>218 - 232</td><td>15</td></tr>
-                <tr><td>233 - 247</td><td>16</td></tr>
-            </table>
         </div>
     </div>
 </body>

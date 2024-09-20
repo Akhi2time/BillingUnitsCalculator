@@ -17,22 +17,12 @@ h1 {
 }
 
 .container {
-    display: flex;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
+    max-width: 500px;
     width: 100%;
-}
-
-.main-content {
-    flex: 2;
-    margin-right: 20px;
-}
-
-.side-guide {
-    flex: 1;
 }
 
 label {
@@ -95,14 +85,8 @@ th {
     font-weight: bold;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-content, .side-guide {
-        width: 100%;
-        margin: 0;
+        padding: 20px;
     }
 }
