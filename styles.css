@@ -21,8 +21,22 @@ h1 {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: 900px;
     width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.side-guide {
+    flex: 1;
 }
 
 label {
@@ -85,8 +99,13 @@ th {
     font-weight: bold;
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .main-content, .side-guide {
+        width: 100%;
+        margin: 0;
     }
 }
