@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time and Minutes to Units Converter</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
     <script>
         // Convert minutes to units
         function convertMinutesToUnits(minutes) {
@@ -84,27 +85,31 @@
     </script>
 </head>
 <body>
-    <h1>Time and Minutes to Units Converter</h1>
+    <div class="container">
+        <h1>Time and Minutes to Units Converter</h1>
 
-    <!-- Section 1: Convert start/end time to units -->
-    <div>
-        <h2>Convert Time to Units</h2>
-        <label for="startTime">Start Time (HH:MM):</label>
-        <input type="time" id="startTime" required>
+        <!-- Section 1: Convert start/end time to units -->
+        <div>
+            <h2>Convert Time to Units</h2>
+            <label for="startTime">Start Time (HH:MM):</label>
+            <input type="time" id="startTime" required>
 
-        <label for="endTime">End Time (HH:MM):</label>
-        <input type="time" id="endTime" required>
+            <label for="endTime">End Time (HH:MM):</label>
+            <input type="time" id="endTime" required>
 
-        <button onclick="calculateUnitsWorked()">Calculate Units</button>
-        <p id="unitsResult"></p>
+            <button onclick="calculateUnitsWorked()">Calculate Units</button>
+            <p id="unitsResult"></p>
+        </div>
+
+        <!-- Section 2: Convert minutes to units -->
+        <div>
+            <h2>Convert Minutes to Units</h2>
+            <label for="minutesInput">Enter Minutes:</label>
+            <input type="number" id="minutesInput" placeholder="e.g., 45" required>
+
+            <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
+            <p id="minutesResult"></p>
+        </div>
     </div>
-
-    <!-- Section 2: Convert minutes to units -->
-    <div>
-        <h2>Convert Minutes to Units</h2>
-        <label for="minutesInput">Enter Minutes:</label>
-        <input type="number" id="minutesInput" placeholder="e.g., 45" required>
-
-        <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
-        <p id="minutesResult"></p>
-    </div>
+</body>
+</html>
