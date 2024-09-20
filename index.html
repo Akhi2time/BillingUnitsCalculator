@@ -6,7 +6,7 @@
     <title>Time and Minutes to Units Converter</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
     <script>
-        // Convert minutes to units
+        // Your existing JavaScript code
         function convertMinutesToUnits(minutes) {
             const unitRanges = [8, 22, 37, 52, 67, 82, 97, 112, 127, 142, 157, 172, 187, 202, 217, 232, 247];
             for (let i = 0; i < unitRanges.length; i++) {
@@ -17,13 +17,11 @@
             return "Invalid input: Exceeds the defined range.";
         }
 
-        // Convert time (HH:MM) to total minutes
         function convertTimeToMinutes(time) {
             const [hours, minutes] = time.split(":").map(Number);
             return (hours * 60) + minutes;
         }
 
-        // Calculate the difference in units between start and end times
         function calculateUnitsWorked() {
             const startTime = document.getElementById("startTime").value;
             const endTime = document.getElementById("endTime").value;
@@ -41,7 +39,6 @@
             }
         }
 
-        // Convert entered minutes to units directly
         function calculateUnitsFromMinutes() {
             const minutes = parseInt(document.getElementById("minutesInput").value);
 
@@ -58,31 +55,33 @@
     <div class="container">
         <h1>Time and Minutes to Units Converter</h1>
 
-        <!-- Section 1: Convert start/end time to units -->
-        <div>
-            <h2>Convert Time to Units</h2>
-            <label for="startTime">Start Time (HH:MM):</label>
-            <input type="time" id="startTime" required>
+        <div class="main-content">
+            <!-- Section 1: Convert start/end time to units -->
+            <div>
+                <h2>Convert Time to Units</h2>
+                <label for="startTime">Start Time (HH:MM):</label>
+                <input type="time" id="startTime" required>
 
-            <label for="endTime">End Time (HH:MM):</label>
-            <input type="time" id="endTime" required>
+                <label for="endTime">End Time (HH:MM):</label>
+                <input type="time" id="endTime" required>
 
-            <button onclick="calculateUnitsWorked()">Calculate Units</button>
-            <p id="unitsResult"></p>
+                <button onclick="calculateUnitsWorked()">Calculate Units</button>
+                <p id="unitsResult"></p>
+            </div>
+
+            <!-- Section 2: Convert minutes to units -->
+            <div>
+                <h2>Convert Minutes to Units</h2>
+                <label for="minutesInput">Enter Minutes:</label>
+                <input type="number" id="minutesInput" placeholder="e.g., 45" required>
+
+                <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
+                <p id="minutesResult"></p>
+            </div>
         </div>
 
-        <!-- Section 2: Convert minutes to units -->
-        <div>
-            <h2>Convert Minutes to Units</h2>
-            <label for="minutesInput">Enter Minutes:</label>
-            <input type="number" id="minutesInput" placeholder="e.g., 45" required>
-
-            <button onclick="calculateUnitsFromMinutes()">Convert to Units</button>
-            <p id="minutesResult"></p>
-        </div>
-
-        <!-- Section 3: User-friendly guide -->
-        <div>
+        <!-- Section 3: User-friendly guide on the side -->
+        <div class="side-guide">
             <h2>Minutes to Units Mapping Guide</h2>
             <table>
                 <tr><th>Minutes Range</th><th>Units</th></tr>
